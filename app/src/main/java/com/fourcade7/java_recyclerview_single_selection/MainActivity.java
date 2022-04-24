@@ -26,19 +26,30 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.recyclerview1);
         modelArrayList=new ArrayList<>();
-        modelArrayList.add(new Model(R.drawable.anor,"Anor"));
-        modelArrayList.add(new Model(R.drawable.apelsin,"Apelsin"));
-        modelArrayList.add(new Model(R.drawable.limon,"Limon"));
-        modelArrayList.add(new Model(R.drawable.malina,"Malina"));
-        modelArrayList.add(new Model(R.drawable.olcha,"Olcha"));
-        modelArrayList.add(new Model(R.drawable.olma,"Olma"));
-        modelArrayList.add(new Model(R.drawable.olmared,"Qizil Olma"));
-        modelArrayList.add(new Model(R.drawable.olxori,"Olxori"));
-        modelArrayList.add(new Model(R.drawable.orik,"O`rik"));
-        modelArrayList.add(new Model(R.drawable.qulupnay,"Qulupnay"));
-        modelArrayList.add(new Model(R.drawable.shaftoli,"Shaftoli"));
-        modelArrayList.add(new Model(R.drawable.smorodina,"Smorodina"));
-        modelArrayList.add(new Model(R.drawable.tomat,"Tomat"));
+        modelArrayList.add(new Model("https://market.vseokoree.com/images/product/1578510564blissvishnya.png","Anor"));
+        modelArrayList.add(new Model("https://gomart.uz/542-large_default/bliss.jpg","Apelsin"));
+        modelArrayList.add(new Model("https://gomart.uz/546-large_default/bliss.jpg","Shaftoli"));
+        modelArrayList.add(new Model("https://gomart.uz/543-large_default/bliss.jpg","Olma"));
+        modelArrayList.add(new Model("https://market.vseokoree.com/images/product/1578510564blissvishnya.png","Anor"));
+        modelArrayList.add(new Model("https://gomart.uz/542-large_default/bliss.jpg","Apelsin"));
+        modelArrayList.add(new Model("https://gomart.uz/546-large_default/bliss.jpg","Shaftoli"));
+        modelArrayList.add(new Model("https://gomart.uz/543-large_default/bliss.jpg","Olma"));
+        modelArrayList.add(new Model("https://market.vseokoree.com/images/product/1578510564blissvishnya.png","Anor"));
+        modelArrayList.add(new Model("https://gomart.uz/542-large_default/bliss.jpg","Apelsin"));
+        modelArrayList.add(new Model("https://gomart.uz/546-large_default/bliss.jpg","Shaftoli"));
+        modelArrayList.add(new Model("https://gomart.uz/543-large_default/bliss.jpg","Olma"));
+        modelArrayList.add(new Model("https://market.vseokoree.com/images/product/1578510564blissvishnya.png","Anor"));
+        modelArrayList.add(new Model("https://gomart.uz/542-large_default/bliss.jpg","Apelsin"));
+        modelArrayList.add(new Model("https://gomart.uz/546-large_default/bliss.jpg","Shaftoli"));
+        modelArrayList.add(new Model("https://gomart.uz/543-large_default/bliss.jpg","Olma"));
+        modelArrayList.add(new Model("https://market.vseokoree.com/images/product/1578510564blissvishnya.png","Anor"));
+        modelArrayList.add(new Model("https://gomart.uz/542-large_default/bliss.jpg","Apelsin"));
+        modelArrayList.add(new Model("https://gomart.uz/546-large_default/bliss.jpg","Shaftoli"));
+        modelArrayList.add(new Model("https://gomart.uz/543-large_default/bliss.jpg","Olma"));
+        modelArrayList.add(new Model("https://market.vseokoree.com/images/product/1578510564blissvishnya.png","Anor"));
+        modelArrayList.add(new Model("https://gomart.uz/542-large_default/bliss.jpg","Apelsin"));
+        modelArrayList.add(new Model("https://gomart.uz/546-large_default/bliss.jpg","Shaftoli"));
+        modelArrayList.add(new Model("https://gomart.uz/543-large_default/bliss.jpg","Olma"));
 
 
         readall();
@@ -54,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        readall();
+        for (int i = 0; i < modelArrayList.size(); i++) {
+            modelArrayList.get(i).setSelected(false);
+        }
+        modelAdapter.notifyDataSetChanged();
     }
 }

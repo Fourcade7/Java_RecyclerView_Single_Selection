@@ -2,28 +2,22 @@ package com.fourcade7.java_recyclerview_single_selection;
 
 public class Model {
 
-    int image;
+    String  image;
     String name;
     boolean selected=false;
 
-    public boolean isSelected() {
-        return selected;
-    }
-
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-    }
-
-    public Model(int image, String name) {
+    public Model(String image, String name) {
         this.image = image;
         this.name = name;
+
     }
 
-    public int getImage() {
+
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -33,5 +27,13 @@ public class Model {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }

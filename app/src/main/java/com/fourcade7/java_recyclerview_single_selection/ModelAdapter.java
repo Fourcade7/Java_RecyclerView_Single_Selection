@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -21,9 +22,9 @@ public class ModelAdapter extends RecyclerView.Adapter<ModelAdapter.ModelViewHol
     Context context;
     ArrayList<Model> modelArrayList;
     ArrayList<Model> clearmodelArrayList=new ArrayList<>();
-    ArrayList singlemodelArrayList=new ArrayList<>();
+    ArrayList<Model> singlemodelArrayList=new ArrayList<>();
     MainActivity mainActivity;
-    int h=0;
+
 
 
     public ModelAdapter(Context context, ArrayList<Model> modelArrayList) {
@@ -53,6 +54,7 @@ public class ModelAdapter extends RecyclerView.Adapter<ModelAdapter.ModelViewHol
 
         holder.textView.setText(modelArrayList.get(position).getName());
         Glide.with(context).load(modelArrayList.get(position).getImage()).into(holder.imageView);
+        //Picasso.get().load(modelArrayList.get(position).getImage()).into(holder.imageView);
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,9 +62,9 @@ public class ModelAdapter extends RecyclerView.Adapter<ModelAdapter.ModelViewHol
 
                 for (int i = 0; i < modelArrayList.size(); i++) {
                     modelArrayList.get(i).setSelected(false);
-
                 }
-                mainActivity.readall();
+               mainActivity.modelAdapter.notifyDataSetChanged();
+               // mainActivity.readall();
                 modelArrayList.get(position).setSelected(!modelArrayList.get(position).isSelected());
                 if (modelArrayList.get(position).isSelected()){
                     holder.linearLayout.setBackgroundResource(R.drawable.layout_background);
