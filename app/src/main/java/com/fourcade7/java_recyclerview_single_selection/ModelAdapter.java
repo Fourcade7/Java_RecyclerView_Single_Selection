@@ -1,6 +1,7 @@
 package com.fourcade7.java_recyclerview_single_selection;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ public class ModelAdapter extends RecyclerView.Adapter<ModelAdapter.ModelViewHol
     ArrayList<Model> clearmodelArrayList=new ArrayList<>();
     ArrayList<Model> singlemodelArrayList=new ArrayList<>();
     MainActivity mainActivity;
+    int h=0;
 
 
 
@@ -59,7 +61,7 @@ public class ModelAdapter extends RecyclerView.Adapter<ModelAdapter.ModelViewHol
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                mainActivity.imageView.setVisibility(View.VISIBLE);
                 for (int i = 0; i < modelArrayList.size(); i++) {
                     modelArrayList.get(i).setSelected(false);
                 }
@@ -67,11 +69,23 @@ public class ModelAdapter extends RecyclerView.Adapter<ModelAdapter.ModelViewHol
                // mainActivity.readall();
                 modelArrayList.get(position).setSelected(!modelArrayList.get(position).isSelected());
                 if (modelArrayList.get(position).isSelected()){
+                    h=position;
                     holder.linearLayout.setBackgroundResource(R.drawable.layout_background);
                 }else {
                     holder.linearLayout.setBackgroundResource(R.drawable.layout_background_white);
 
                 }
+            }
+        });
+
+        mainActivity.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context,MainActivity2.class);
+                intent.putExtra("image",modelArrayList.get(h).getImage());
+                intent.putExtra("name",modelArrayList.get(h).getName());
+                context.startActivity(intent);
+
             }
         });
 
